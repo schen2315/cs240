@@ -4,7 +4,7 @@ void New(string &last, string &first, int &age, int &strnum, string &strname,
 	string &town, string &zip, float &donated);
 
 void Update(string &last, string &first, int &age, int &strnum, string &strname,
-	string &town, string &zip, float &donated);
+	string &town, string &zip);
 
 void View(string &last, string &first, int &age, int &strnum, string &strname,
 	string &town, string &zip, float &donated);
