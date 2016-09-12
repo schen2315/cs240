@@ -1,0 +1,14 @@
+find - looks for the file/directory that matches the argument.
+one thing i didn't know: I think find does recursion on directories
+
+rmdir - removes an empty dir
+one thing i didn't know: you can use the -p flag to remove a directory and it's ancestors
+
+g++ - compiles c and c++ files
+one thing i didn't know: there are a crap ton of optional flags.
+
+make - compile a bunch of c++ programs/files through specified steps in a makefile.
+one thing i didnt know: you can use the -d flag to tell you which files are being remade, how long thigs are taking, etc.
+
+ls - prints the files and directories in your current working dir.
+one thing i didn't know: you can use the -a flag to print "invisible" files and directories.
