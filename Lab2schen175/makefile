@@ -15,5 +15,6 @@ compile:
 
 #
 #
-clean: rm *.o Voter
+clean: 
+	rm *.o Voter *~
 
