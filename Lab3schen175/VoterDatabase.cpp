@@ -5,9 +5,9 @@ using namespace std;
 VoterDatabase::VoterDatabase() {
 	
 };
-Voter VoterDatabase::Login() {
+// Voter VoterDatabase::Login() {
 
-};
+// };
 void VoterDatabase::New() {
 
 };
