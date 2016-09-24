@@ -8,7 +8,7 @@
 		//and will go back to the first loop
 	//if a user types quit in the 1st menu, main() will exit
 #include <iostream>
-#include "voter.h"
+#include "Voter.h"
 #include "VoterDatabase.h"
 #include <vector>
 
