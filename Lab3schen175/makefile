@@ -14,4 +14,4 @@ compile:
 #
 #
 clean:
-	rm -f *.o *~ Voter 
+	rm -f *.o *~ Voter output.txt

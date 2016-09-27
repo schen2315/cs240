@@ -1,17 +1,25 @@
 #include "Voter.h"
 class VoterDatabase {
 public:
+	//default constructor
 	VoterDatabase();
-	~VoterDatabase();
-	Voter Login();
-	void New();	//do type checking 
-				//create a new Voter object
-				//then pass the new voter to _add func
-				//to save the voter to the database
-	void Save();
-	void Load();
+	VoterDatabase(int max);
+	//~VoterDatabase();
+	Voter* Login(string userid, string password);
+	State getStateCode(string st);
+	void Save(string file);
+	void Load(string file);
 	void Report();
+
+	void add(Voter *v);
 private:
-	void _add(Voter v);
-	Voter* database[];
+	int size;
+	int max;
+	//since database is dynamically allocated
+	//it has to be created with new
+	//and therefore must be a pointer 
+	Voter** database;
+	Voter* _findUser(string userid);
 };
+
+
