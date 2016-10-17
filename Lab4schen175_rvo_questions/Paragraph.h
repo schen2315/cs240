@@ -44,6 +44,7 @@ public:
 private:	
 	Paragraph* next; 
 	Sentence* s;
+
 };
 
 #endif

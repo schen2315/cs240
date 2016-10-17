@@ -19,7 +19,7 @@ public:
 	void save(string file);
 
 	bool empty() const;
-	//int sizeOf() const;
+	int sizeOf() const;
 	~Story();
 
 	Story &operator=(const Story &rightStory);	//creates a deep copy

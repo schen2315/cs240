@@ -7,10 +7,10 @@ Word testCopyConstructor() {
 	Word s("string");
 	return s;
 }
-// Word testCopyConstructor2() {
-// 	Word* s = new Word("string2");	//YOU NEED TO EXPLICITLY DELETE THIS
-// 	return *s;		//copy constructor should get called
-// }
+Word testCopyConstructor2() {
+	Word* s = new Word("string2");	//YOU NEED TO EXPLICITLY DELETE THIS
+	return *s;		//copy constructor should get called
+}
 void testDeepCopy(Sentence &s) {
 std::cout << "Entering testDeepCopy(Sentence &s)" << std::endl;
 	Word w0("Watch");
@@ -72,36 +72,30 @@ void dummyTest() {
 	//*w6 = *w1;
 	Sentence s = *w1 + *w2+ *w3 + *w4 + *w5 + *w6;
 	cout << endl;
-	delete w1;
-	delete w2;
-	delete w3;
-	delete w4;
-	delete w5;
-	delete w6;
-	// s.show();
-	// cout << endl;
-	// Sentence w;
-	// //w = s;
-	// testDeepCopy(w);
-	// cout << endl;
-	// w.show();
-	// cout << endl;
-	// Paragraph p = s + w;
-	// p.show();
-	// cout << endl;
-	// Paragraph g;
-	// g = p;
-	// g.show();
-	// cout << endl;
-	// Sentence s3 = *(new Word("Hello")) + *(new Word("World"));
-	// Paragraph l = g + s3;
-	// l.show();
-	// cout << endl;
-	// g.show();
-	// cout << endl;
-	// Paragraph m = s3 + l;
-	// m.show();
-	// cout << endl;
+	s.show();
+	cout << endl;
+	Sentence w;
+	//w = s;
+	testDeepCopy(w);
+	cout << endl;
+	w.show();
+	cout << endl;
+	Paragraph p = s + w;
+	p.show();
+	cout << endl;
+	Paragraph g;
+	g = p;
+	g.show();
+	cout << endl;
+	Sentence s3 = *(new Word("Hello")) + *(new Word("World"));
+	Paragraph l = g + s3;
+	l.show();
+	cout << endl;
+	g.show();
+	cout << endl;
+	Paragraph m = s3 + l;
+	m.show();
+	cout << endl;
 	//w.show();
 	//delete s;	//can't delete s because s resides on the stack
 	//w.show();

@@ -16,9 +16,7 @@ cout << "Leaving function Story::Story(string file)" << endl;
 }
 void Story::show() const {
 cout << "Entering function Story::show()" << endl;
-	if(p != NULL) {
-		p->show();
-	}
+
 cout << "Leaving function Story::show()" << endl;	
 };
 void Story::save(string file) {
@@ -33,12 +31,12 @@ cout << "Entering function Story::empty()" << endl;
 cout << "Leaving function Story::empty()" << endl;	
 	return true;
 };
-// int Story::sizeOf() const {
-// cout << "Entering function Story::sizeOf()" << endl;
+int Story::sizeOf() const {
+cout << "Entering function Story::sizeOf()" << endl;
 
-// cout << "Leaving function Story::sizeOf()" << endl;	
-// 	return 0;
-// };
+cout << "Leaving function Story::sizeOf()" << endl;	
+	return 0;
+};
 Story::~Story() {
 cout << "Entering function Story::~Story()" << endl;
 	if(p != NULL) delete p;
@@ -133,58 +131,23 @@ cout << "Leaving function Story::out()" << endl;
 Story operator+(const Story &leftStory, const Paragraph &rightParagraph) {
 cout << "Entering function operator+(const Story &leftStory, const Paragraph &rightParagraph)" << endl;
 	Story copy;
-	copy = leftStory; 	//deep copy
-
-	Paragraph* rightCopy = new Paragraph();		//do we wanna check if rightParagraph is null
-	*rightCopy = rightParagraph;	//deep copy of Paragraph
-	Paragraph *temp;
-	temp = copy.p;
-	if(temp != NULL) {
-		while(temp->next != NULL) {
-			temp = temp->next;
-		}
-		temp->next = rightCopy;
-	} else {
-		copy.p = rightCopy;
-	}
-	//run through each paragraph
 cout << "Leaving function operator+(const Story &leftStory, const Paragraph &rightParagraph)" << endl;
 	return copy;
 };
 Story operator+(const Paragraph &leftParagraph, const Story &rightStory) {
 cout << "Entering function operator+(const Paragraph &leftParagraph, const Story &rightStory)" << endl;
 	Story copy;
-	copy = rightStory;
-	Paragraph* leftCopy = new Paragraph();
-	*leftCopy = leftParagraph;
-	leftCopy->next = copy.p;
-	copy.p = leftCopy;
+	
+
 cout << "Leaving function operator+(const Paragraph &leftParagraph, const Story &rightStory)" << endl;
 	return copy;
 };
 Story operator+(const Story &leftStory, const Story &rightStory) {
 cout << "Entering function operator+(const Story &leftStory, const Story &rightStory)" << endl;
-	Story leftCopy;
-	leftCopy = leftStory;
-	Paragraph *rightCopy = NULL;
-	
-	if(rightStory.p != NULL) {
-		Paragraph* nP = new Paragraph();
-		rightCopy = nP;
-		*rightCopy = *(rightStory.p);		//deep copy should be made
-	}
-	Paragraph* temp = leftCopy.p;
-	if(temp != NULL) {
-		while(temp->next != NULL) {
-			temp = temp->next;
-		}
-		temp->next = rightCopy;
-	} else {
-		leftCopy.p = rightCopy;
-	}
-	
+	Story copy;
+
 cout << "Leaving function operator+(const Story &leftStory, const Story &rightStory)" << endl;
-	return leftCopy;
+	return copy;
 };
 
 

@@ -24,10 +24,6 @@ cout << "Entering function Paragraph::show()" << endl;
 	} else {
 		cout << "no words in paragraph" << endl;
 	}
-	cout << endl;
-	if(next != NULL) {
-		next->show();
-	}
 cout << "Leaving function Paragraph::show()" << endl;
 };
 
@@ -190,43 +186,17 @@ cout << "Leaving function operator+(const Sentence& leftSentence, const Sentence
 Paragraph operator+(const Paragraph& leftParagraph, const Paragraph& rightParagraph) {
 cout << "Entering function operator+(const Paragraph& leftParagraph, const Paragraph& rightParagraph)" << endl;
 	Paragraph leftCopy;		
-	//Paragraph* rightCopy = new Paragraph();			//if this is an object, the compiler will delete it since it is technically not needed anymore
-													//the object won't get deleted unless it is explicitly deleted
-													//this way cannot be done b.c. there is a definite memory leak
+	Paragraph rightCopy;
 	leftCopy = leftParagraph;	//deep copies
-
-	//Sentence* head = NULL;
-	Sentence* copyIt = NULL;
-	//Sentence* rightIt = NULL;
-	
-	//rightIt = rightParagraph.s;
-	if(rightParagraph.s != NULL) {
-		Sentence* nS = new Sentence();
-		copyIt = nS;
-		*copyIt = *(rightParagraph.s);		//deep copies of all sentences
-		//head = copyIt;
-		//rightIt = rightIt->next;
-		/*
-		while(rightIt != NULL) {
-			Sentence* nS = new Sentence();
-			copyIt->next = nS;
-			copyIt = nS;
-			*copyIt = *rightIt;
-			rightIt = rightIt->next;
-		}
-		*/
-	}
-	//*rightCopy = rightParagraph;
+	rightCopy = rightParagraph;
 	if(leftCopy.s != NULL) {
 		Sentence* temp = leftCopy.s;
 		while(temp->next != NULL) {
 			temp = temp->next;
 		}
-		//temp->next = rightCopy->s;
-		temp->next = copyIt;
+		temp->next = rightCopy.s;
 	} else {
-		//leftCopy.s = rightCopy->s;
-		leftCopy.s = copyIt;
+		leftCopy.s = rightCopy.s;
 	}
 cout << "Leaving function operator+(const Paragraph& leftParagraph, const Paragraph& rightParagraph)" << endl;
 	return leftCopy;
