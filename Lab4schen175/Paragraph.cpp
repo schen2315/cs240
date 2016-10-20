@@ -34,10 +34,10 @@ cout << "Entering function Paragraph::Paragraph(string input)" << endl;
 	istringstream input(para);
 	//only get the first line of input
 	getline(input, para);
-	input = istringstream(para);
+	istringstream input2(para);	//error here
 	bool end = false;
-	while(!input.fail() && end == false) {
-		input >> tmp;
+	while(!input2.fail() && end == false) {
+		input2 >> tmp;
 		//loop thru
 		//every time we reach a '.', '!', '?', take the substring
 		for(int i=0; i < tmp.length(); i++) {
@@ -195,9 +195,8 @@ cout << "Leaving function Paragraph::operator--(int num)" << endl;
 
 Sentence Paragraph::first() const {
 	cout << "Entering function Paragraph::first()" << endl;
-	Sentence s;
 	cout << "Leaving function Paragraph::first()" << endl;
-	return s;
+	return firstHelper(*this);
 };
 Paragraph Paragraph::rest() const {
 	cout << "Entering function Paragraph::rest()" << endl;
@@ -306,4 +305,14 @@ cout << "Entering function operator+(const Paragraph& leftParagraph, const Parag
 	}
 cout << "Leaving function operator+(const Paragraph& leftParagraph, const Paragraph& rightParagraph)" << endl;
 	return leftCopy;
+};
+Sentence firstHelper(const Paragraph& p) {
+	Sentence copy("what a dummy sentence");
+	if(p.s != NULL) {
+		copy = *(p.s);
+	}
+	Sentence *temp = copy.next;
+	copy.next = NULL;
+	delete temp;
+	return copy;
 };

@@ -113,7 +113,6 @@ cout << "Entering function Sentence::operator=(const Sentence &rightSentence)" <
 		//cout << "hey hey" << endl;
 		Word *nW = new Word("dummy");
 		w = nW;
-		cout << *(rightSentence.w) << endl;
 		*nW = *(rightSentence.w);
 	}
 	//eventually add this functionality when writing Paragraph
@@ -177,10 +176,9 @@ cout << "Leaving function Sentence::operator--" << endl;
 
 Word Sentence::first() const {
 	cout << "Entering function Sentence::first()" << endl;
-	Word w("dummy");
 
 	cout << "Leaving function Sentence::first()" << endl;	
-	return w;
+	return firstHelper(*this);
 };
 Sentence Sentence::rest() const {
 	cout << "Entering function Sentence::rest()" << endl;
@@ -234,7 +232,6 @@ Sentence operator+(const Word& leftWord, const Sentence& rightSentence) {
 };
 Sentence operator+(const Word& leftWord, const Word& rightWord) {
 cout << "Entering function operator+(const Word& leftWord, const Word& rightWord)" << endl;
-cout << "Parameters: " << rightWord << endl;
 	Sentence s;
 	//allocate space on the heap for leftWord and rightWord copies
 	Word* leftCopy = new Word("dummy1");
@@ -245,4 +242,16 @@ cout << "Parameters: " << rightWord << endl;
 	s.w = leftCopy;
 cout << "Leaving function operator+(const Word& leftWord, const Word& rightWord)" << endl;
 	return s;
+};
+Word firstHelper(const Sentence& s) {
+cout << "Entering function firstHelper(const Sentence& s)" << endl;
+	Word copy("dummy");
+	if(s.w != NULL) {
+		copy = *(s.w);
+	}
+	Word *temp = copy.next;
+	copy.next = NULL;
+	delete temp;
+	return copy;
+cout << "Leaving function firstHelper(const Sentence& s)" << endl;
 };

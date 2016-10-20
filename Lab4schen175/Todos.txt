@@ -48,7 +48,12 @@ Today is Oct. 19
 -fix the Paragraph NULL+sentence case										COMPLETED
 -work on story save functionality 											COMPLETED
 -work on pigLatin and capitalization stuff
+	pigLatin														3
+	capitalization													2
 -first and rest functions
+	first functions															COMPLETED
+	rest functions													1
+-remove vector usage												4
 -Ask YuHeng if it's okay to use <vector> the way i use it
 -get rid of stringParser functions
 

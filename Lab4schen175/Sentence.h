@@ -42,6 +42,9 @@ public:
 	friend Paragraph operator+(const Sentence& leftSentence, const Paragraph& rightParagraph);
 	friend Paragraph operator+(const Paragraph& leftParagraph, const Sentence& rightSentence);
 	friend Paragraph operator+(const Sentence& leftSentence, const Sentence& rightSentence);
+
+	friend Word firstHelper(const Sentence& s); 
+	friend Sentence firstHelper(const Paragraph& p);
 private:	
 	string endMark;
 	Sentence* next; 

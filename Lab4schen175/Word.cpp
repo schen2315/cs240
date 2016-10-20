@@ -72,7 +72,6 @@ cout << "Entering function Word::operator=(const Word &rightWord)" << endl;
 		delete next;
 	}
 	w = rightWord.w;
-	cout << rightWord.w << endl;
 	pigLatin = rightWord.pigLatin;
 	next = NULL;
 	if(rightWord.next != NULL) {

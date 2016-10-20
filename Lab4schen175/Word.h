@@ -37,6 +37,8 @@ public:
 	friend Sentence operator+(const Word &leftWord, const Word &rightWord);
 	friend Sentence operator+(const Sentence &leftSentence, const Word &rightWord);
 	friend Sentence operator+(const Word& leftWord, const Sentence& rightSentence);
+
+	friend Word firstHelper(const Sentence& s);
 private:	
 	Word* next; 
 	string w;

@@ -37,7 +37,7 @@ cout << "Entering function Story::Story(string file)" << endl;
 		paragraphs.push_back(storyi);
 	}
 	Story s;
-	for(int i=0; i < paragraphs.size(); i++) {
+	for(unsigned int i=0; i < paragraphs.size(); i++) {
 		Paragraph pi(paragraphs[i]);
 		s = s + pi;
 	}
@@ -146,9 +146,9 @@ cout << "Leaving function Story::operator--()" << endl;
 
 Paragraph Story::first() const {
 cout << "Entering function Story::first()" << endl;
-	Paragraph p;
+
 cout << "Leaving function Story::first()" << endl;
-	return p;
+	return firstHelper(*this);
 };
 Story Story::rest() const {
 cout << "Entering function Story::rest()" << endl;
@@ -222,7 +222,16 @@ cout << "Entering function operator+(const Story &leftStory, const Story &rightS
 cout << "Leaving function operator+(const Story &leftStory, const Story &rightStory)" << endl;
 	return leftCopy;
 };
-
+Paragraph firstHelper(const Story& st) {
+	Paragraph copy("This is some dummy paragraph. I need more sentences. Because this is a Paragraph");
+	if(st.p != NULL) {
+		copy = *(st.p);
+	}
+	Paragraph *temp = copy.next;
+	copy.next = NULL;
+	delete temp;
+	return copy;
+};
 
 
 

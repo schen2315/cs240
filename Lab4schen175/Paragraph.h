@@ -44,6 +44,9 @@ public:
 	friend Story operator+(const Paragraph &leftParagraph, const Story &rightStory);
 	friend Story operator+(const Story &leftStory, const Paragraph &rightParagraph);
 	friend Story operator+(const Story &leftStory, const Story &rightStory);
+
+	friend Sentence firstHelper(const Paragraph& p);
+	friend Paragraph firstHelper(const Story& st);
 private:	
 	Paragraph* next; 
 	Sentence* s;

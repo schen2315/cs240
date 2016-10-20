@@ -155,31 +155,45 @@ int main() {
     // std::cout << std::endl << std::endl << ++story + (s1+s2) << std::endl;
     // std::cout << std::endl << std::endl << --(story + (s1+s2)) << std::endl;
   }
-  /*
+  
   {
     // test first/rest
-    Sentence s1("In autumn apples are incredibly awesome.");
-    std::cout << s1.first() << std::endl;
-    std::cout << s1.rest() << std::endl;
+     Sentence s1("In autumn apples are incredibly awesome.");
+    // std::cout << s1.first() << std::endl;
+    // std::cout << s1.rest() << std::endl;
     Paragraph p1((hello+cs240) + s1);
+    std::cout << p1 << std::endl;
     std::cout << p1.first() << std::endl;
-    std::cout << p1.rest() << std::endl;
-    Story story("input.txt");
-    std::cout << story.first() << std::endl;
-    std::cout << p1 + story.rest() << std::endl;
+    // std::cout << p1.rest() << std::endl;
+    // Story story("out2.txt");
+    // std::cout << story.first() << std::endl;
+    // std::cout << p1 + story.rest() << std::endl;
   }
-  */
+  
   {
     // test story.save
-    Story story("out.txt");
+    // Story story2("out2.txt");
+    // Story story3("out3.txt");
+    // Story story4("out4.txt");
+    // std::cout << story2.first() + story3.first() + story4.first() << std::endl;
     // ++story;
     // story--;
-    Word good("good");
-    Word morning("morning");
-    Word night("night");
-    std::cout << story << std::endl;
-    //Sentence s("This is some test phrase?");
-    // Paragraph p("it was a rainy day. everyone stayed inside? \nWhere did everyone go!");
+    // Word good("good");
+    // Word morning("morning");
+    // Word night("night");
+    //std::cout << story << std::endl;
+    // Sentence s("This is some test phrase?");
+    // Sentence s1("is this good enough?");
+    // Sentence s2("cs240 is fill in the blank.");
+    //std::cout << s << std::endl;
+    //Word w = firstHelper(s);
+    //std::cout << firstHelper(s) + firstHelper(s1) + firstHelper(s2) << std::endl;
+    //std::cout << s.first() + s1.first() + s2.first() << std::endl;
+    //std::cout << s << endl << s1 << endl << s2;
+    // Paragraph p(s + s1 + s2);
+    //std::cout << p << std::endl;
+    // Paragraph p2("it was a rainy day. everyone stayed inside? \nWhere did everyone go!");
+    //std::cout << p2 << std::endl;
     //ofstream out;
     //out.open("out.txt");
     // good.save(out);
@@ -196,6 +210,9 @@ int main() {
     //outro + 1;
     // std::cout << intro << std::endl;
     // std::cout << outro << std::endl;
+
+    //std::cout << p.first() + p2.first() + intro.first() + outro.first() << std::endl;
+    //(Story() + (p.first() + p2.first() + intro.first() + outro.first())).save("out2.txt");
     // Sentence s("I WILL SOLVE THIS SHIT!");
     // std::cout << s << std::endl;
     // Sentence w("COOL SHIT BRO!");
