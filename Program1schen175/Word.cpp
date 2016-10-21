@@ -4,13 +4,13 @@
 
 
 Word::Word(string word) {
-cout << "Entering function Word::Word()" << endl;
+// cout << "Entering function Word::Word()" << endl;
 	//check that word is not empty
 	w = word;
 	isPig = false;
 	prevw = "";
 	next = NULL;
-cout << "Leaving function Word::Word()" << endl;
+// cout << "Leaving function Word::Word()" << endl;
 };
 /*
 Word::Word(const Word &rightWord) {
@@ -32,7 +32,7 @@ void Word::show(){
 //cout << "Leaving function Word::show()" << endl;
 };
 void Word::toUpper() {
-cout << "Entering function Word::toUpper()" << endl;
+// cout << "Entering function Word::toUpper()" << endl;
 	for(int i=0; i < w.length(); i++) {
 		if(w.at(i) >= 97 && w.at(i) <= 122) {
 			char newChar = (char)(w.at(i) - 32);
@@ -40,10 +40,10 @@ cout << "Entering function Word::toUpper()" << endl;
 			w = w.substr(0, i) + upper + w.substr(i+1, w.length() - i-1);
 		}
 	}
-cout << "Leaving function Word::toUpper()" << endl;
+// cout << "Leaving function Word::toUpper()" << endl;
 }
 void Word::toLower() {
-cout << "Entering function Word::toLower()" << endl;
+// cout << "Entering function Word::toLower()" << endl;
 	for(int i=0; i < w.length(); i++) {
 		if(w.at(i) >= 65 && w.at(i) <= 90) {
 			char newChar = (char)(w.at(i) + 32);
@@ -51,7 +51,7 @@ cout << "Entering function Word::toLower()" << endl;
 			w = w.substr(0, i) + lower + w.substr(i+1, w.length() - i-1);
 		}
 	}
-cout << "Leaving function Word::toLower()" << endl;
+// cout << "Leaving function Word::toLower()" << endl;
 }
 bool Word::empty() const {
 // cout << "Entering function Word::empty()" << endl;
@@ -60,7 +60,7 @@ bool Word::empty() const {
 	return false;
 };
 void Word::e2p() {
-cout << "Entering function Word::e2p()" << endl;
+// cout << "Entering function Word::e2p()" << endl;
 	bool isVowel = false;
 	//if(w.length() > 0) {
 		for(int i=0; i < 10; i++) {
@@ -79,27 +79,27 @@ cout << "Entering function Word::e2p()" << endl;
 	//} else {
 	//	cout << "something is off" << endl;
 	//}
-cout << "Leaving function Word::e2p()" << endl;
+// cout << "Leaving function Word::e2p()" << endl;
 }
 void Word::save(ofstream& file) {
-cout << "Entering function Word::save()" << endl;
+// cout << "Entering function Word::save()" << endl;
 	file << w;
 	if(next != NULL) {
 		file << " ";
 		next->save(file);
 	}
-cout << "Leaving function Word::save()" << endl;	
+// cout << "Leaving function Word::save()" << endl;	
 }
 Word::~Word(){
-cout << "Entering function Word::~Word()" << endl;
+// cout << "Entering function Word::~Word()" << endl;
 	if(next != NULL) {
 		//cout << "true" << endl;
 		delete next;
 	}
-cout << "Leaving function Word::~Word()" << endl;
+// cout << "Leaving function Word::~Word()" << endl;
 };
 Word& Word::operator=(const Word &rightWord) {	
-cout << "Entering function Word::operator=(const Word &rightWord)" << endl;
+// cout << "Entering function Word::operator=(const Word &rightWord)" << endl;
 //cout << "this: " << *this << " Parameter: " << rightWord << endl;
 	//cout << rightWord.w << endl;
 	//(*this).w = "blah";
@@ -121,30 +121,30 @@ cout << "Entering function Word::operator=(const Word &rightWord)" << endl;
 		*nextWord = *(rightWord.next);	//sort of a recursive function
 	}
 	//if(hw != NULL) delete hw;
-cout << "Leaving function Word::operator=(const Word &rightWord)" << endl;
+// cout << "Leaving function Word::operator=(const Word &rightWord)" << endl;
 	return (*this);
 };	//creates a deep copy 	
 
 Word& Word::operator++(int num) {
-cout << "Entering function Word::operator++(int num)" << endl;
+// cout << "Entering function Word::operator++(int num)" << endl;
 	//test nesting works
 	// w = w + "+";
 	toUpper();
 	if(next != NULL) (*next)++;
-cout << "Leaving function Word::operator++(int num)" << endl;
+// cout << "Leaving function Word::operator++(int num)" << endl;
 	return (*this);
 };
 
 Word& Word::operator--(int num) {
-cout << "Entering function Word::operator--(int num)" << endl;
+// cout << "Entering function Word::operator--(int num)" << endl;
 	// w = w + "-";
 	toLower();
 	if(next != NULL) (*next)--;
-cout << "Leaving function Word::operator--(int num)" << endl;
+// cout << "Leaving function Word::operator--(int num)" << endl;
 	return (*this);
 };
 Word& Word::operator+(int num) {
-cout << "Entering function Word::operator+(int num)" << endl;
+// cout << "Entering function Word::operator+(int num)" << endl;
 	if(num == 1) {
 		if(w.at(0) >= 97 && w.at(0) <= 122) {
 			char newChar = (char)(w.at(0) - 32);
@@ -153,11 +153,11 @@ cout << "Entering function Word::operator+(int num)" << endl;
 		}
 	}
 	//if(next != NULL) (*next) + 1;
-cout << "Leaving function Word::operator+(int num)" << endl;
+// cout << "Leaving function Word::operator+(int num)" << endl;
 	return (*this);
 };	
 Word& Word::operator++() {
-cout << "Entering function Word::operator++()" << endl;
+// cout << "Entering function Word::operator++()" << endl;
 	// w = "+" + w;
 	// if(next != NULL) ++(*next);
 	if(isPig == true) {
@@ -182,11 +182,11 @@ cout << "Entering function Word::operator++()" << endl;
 		}
 	}
 	if(next != NULL) ++(*next);
-cout << "Leaving function Word::operator++()" << endl;
+// cout << "Leaving function Word::operator++()" << endl;
 	return (*this);
 };
 Word& Word::operator--() {
-cout << "Entering function Word::operator--()" << endl;
+// cout << "Entering function Word::operator--()" << endl;
 	// w = "-" + w;
 	// if(next != NULL) --(*next);
 	//check isPig
@@ -206,7 +206,7 @@ cout << "Entering function Word::operator--()" << endl;
 		prevw = temp;
 	}
 	if(next != NULL) --(*next);
-cout << "Leaving function Word::operator--()" << endl;
+// cout << "Leaving function Word::operator--()" << endl;
 	return (*this);
 };
 

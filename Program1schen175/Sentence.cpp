@@ -3,14 +3,14 @@
 #include <sstream>
 // #include <vector>
 Sentence::Sentence() {
-cout << "Entering function Sentence::Sentence()" << endl;
+// cout << "Entering function Sentence::Sentence()" << endl;
 	next = NULL;
 	w = NULL;
 	endMark = ". ";
-cout << "Leaving function Sentence::Sentence()" << endl;
+// cout << "Leaving function Sentence::Sentence()" << endl;
 };
 Sentence::Sentence(string s) {
-	cout << "Entering function Sentence::Sentence(string s)" << endl;
+// cout << "Entering function Sentence::Sentence(string s)" << endl;
 	next = NULL;
 	w = NULL;
 	endMark = ". ";
@@ -45,7 +45,7 @@ Sentence::Sentence(string s) {
 	// 	s1 = s1 + wi;
 	// }
 	(*this) = s1;
-	cout << "Leaving function Sentence::Sentence(string s)" << endl;
+// cout << "Leaving function Sentence::Sentence(string s)" << endl;
 }
 Word* Sentence::stringParser(string s) {
 	Word *word = NULL;
@@ -83,22 +83,22 @@ void Sentence::save(ofstream& file) {
 	}
 };
 bool Sentence::empty() const {
-	cout << "Entering function Sentence::empty()" << endl;
+// cout << "Entering function Sentence::empty()" << endl;
 	if(w == NULL) 
 		return true;
-	cout << "Leaving function Sentence::empty()" << endl;
+// cout << "Leaving function Sentence::empty()" << endl;
 	return false;
 };
 Sentence::~Sentence(){
-cout << "Entering function Sentence::~Sentence()" << endl;
+// cout << "Entering function Sentence::~Sentence()" << endl;
 	if(w != NULL) delete w;
 	if(next != NULL) {
 		delete next;
 	}
-cout << "Leaving function Sentence::~Sentence()" << endl;
+// cout << "Leaving function Sentence::~Sentence()" << endl;
 };
 Sentence& Sentence::operator=(const Sentence &rightSentence) {
-cout << "Entering function Sentence::operator=(const Sentence &rightSentence)" << endl;
+// cout << "Entering function Sentence::operator=(const Sentence &rightSentence)" << endl;
 //cout << "Parameters: " << rightSentence << endl;
 	//rely on the assignment operator of Word to create the deep copy of Word
 	if(this == &rightSentence) return (*this);
@@ -126,7 +126,7 @@ cout << "Entering function Sentence::operator=(const Sentence &rightSentence)" <
 		*nS = *(rightSentence.next);		//again dynamic/recursive
 	}	
 	//if(hw != NULL) delete hw;
-cout << "Leaving function Sentence::operator=(const Sentence &rightSentence)" << endl;
+// cout << "Leaving function Sentence::operator=(const Sentence &rightSentence)" << endl;
 	return (*this);
 };	//creates a deep copy
 /*
@@ -141,65 +141,66 @@ Sentence Sentence::operator+(const Sentence &rightSentence) const {
 */
 	
 Sentence& Sentence::operator++(int num) {
-cout << "Entering function Sentence::operator++(int num)" << endl;
+// cout << "Entering function Sentence::operator++(int num)" << endl;
 	//postfix
 	if(w != NULL) (*w)++;
 	if(next != NULL) (*next)++;
-cout << "Leaving function Sentence::operator++(int num)" << endl;
+// cout << "Leaving function Sentence::operator++(int num)" << endl;
 	return (*this);
 };
 Sentence& Sentence::operator--(int num) {
-cout << "Entering function Sentence::operator--(int num)" << endl;
+// cout << "Entering function Sentence::operator--(int num)" << endl;
 	if(w != NULL) (*w)--;
 	if(next != NULL) (*next)--;
-cout << "Leaving function Sentence::operator--(int num)" << endl;
+// cout << "Leaving function Sentence::operator--(int num)" << endl;
 	return (*this);
 };
 Sentence& Sentence::operator+(int num) {
-cout << "Entering function Sentence::operator+(int num)" << endl;
+// cout << "Entering function Sentence::operator+(int num)" << endl;
 	if(num == 1) {
 		if(w != NULL) (*w) + 1;
 		if(next != NULL) (*next) + 1;
 	}
-cout << "Leaving function Sentence::operator+(int num)" << endl;
+// cout << "Leaving function Sentence::operator+(int num)" << endl;
 	return (*this);
 };	
 Sentence& Sentence::operator++() {
-cout << "Entering function Sentence::operator++" << endl;
+// cout << "Entering function Sentence::operator++" << endl;
 	if(w != NULL) ++(*w);
 	if(next != NULL) ++(*next);
-cout << "Leaving function Sentence::operator++" << endl;
+// cout << "Leaving function Sentence::operator++" << endl;
 	return (*this);
 };
 Sentence& Sentence::operator--() {
-cout << "Entering function Sentence::operator--" << endl;
+// cout << "Entering function Sentence::operator--" << endl;
 	if(w != NULL) --(*w);
 	if(next != NULL) --(*next);
-cout << "Leaving function Sentence::operator--" << endl;	
+// cout << "Leaving function Sentence::operator--" << endl;	
 	return (*this);
 };
 
 Word Sentence::first() const {
-	cout << "Entering function Sentence::first()" << endl;
+// cout << "Entering function Sentence::first()" << endl;
 
-	cout << "Leaving function Sentence::first()" << endl;	
+// cout << "Leaving function Sentence::first()" << endl;	
 	return firstHelper(*this);
 };
 Sentence Sentence::rest() const {
-	cout << "Entering function Sentence::rest()" << endl;
-	cout << "Leaving function Sentence::rest()" << endl;
+// cout << "Entering function Sentence::rest()" << endl;
+
+// cout << "Leaving function Sentence::rest()" << endl;
 	return restHelper(*this);
 };
 
 ostream& operator<<(ostream &out, const Sentence &s) {
-	cout << "Entering function operator<<(ostream &out, const Sentence &s))" << endl;
+// cout << "Entering function operator<<(ostream &out, const Sentence &s))" << endl;
 	//cout << "Parameters: " << s << endl;
 	s.show();
-	cout << "Leaving function operator<<(ostream &out, const Sentence &s))" << endl;
+// cout << "Leaving function operator<<(ostream &out, const Sentence &s))" << endl;
 	return out;
 };
 Sentence operator+(const Sentence &leftSentence, const Word &rightWord) {
-cout << "Entering function operator+(const Sentence &leftSentence, const Word &rightWord)" << endl;
+// cout << "Entering function operator+(const Sentence &leftSentence, const Word &rightWord)" << endl;
 	//CREATE a deep copy of Sentence FIRST
 	Sentence copy;
 	//if((*copy).w == NULL) cout << "(*copy).w == NULL";
@@ -217,13 +218,13 @@ cout << "Entering function operator+(const Sentence &leftSentence, const Word &r
 		copy.w = lastWord;
 	}
 	//copy.show();
-cout << "Leaving function Sentence::operator+(const Word &rightWord)" << endl;
+// cout << "Leaving function Sentence::operator+(const Word &rightWord)" << endl;
 	return copy;
 	//Sentence s;
 	//return s;
 }; 
 Sentence operator+(const Word& leftWord, const Sentence& rightSentence) {
-	cout << "Entering function operator+(const Word& leftWord, const Sentence& rightSentence)" << endl;
+// cout << "Entering function operator+(const Word& leftWord, const Sentence& rightSentence)" << endl;
 	Sentence copy;
 	copy = rightSentence;
 	Word *newWord = new Word("dummy");
@@ -231,11 +232,11 @@ Sentence operator+(const Word& leftWord, const Sentence& rightSentence) {
 	Word *temp = copy.w;
 	copy.w = newWord;
 	newWord->next = temp;
-	//cout << "Leaving function operator+(const Word& leftWord, const Sentence& rightSentence)" << endl;
+// cout << "Leaving function operator+(const Word& leftWord, const Sentence& rightSentence)" << endl;
 	return copy;
 };
 Sentence operator+(const Word& leftWord, const Word& rightWord) {
-cout << "Entering function operator+(const Word& leftWord, const Word& rightWord)" << endl;
+// cout << "Entering function operator+(const Word& leftWord, const Word& rightWord)" << endl;
 	Sentence s;
 	//allocate space on the heap for leftWord and rightWord copies
 	Word* leftCopy = new Word("dummy1");
@@ -244,11 +245,11 @@ cout << "Entering function operator+(const Word& leftWord, const Word& rightWord
 	*rightCopy = rightWord;
 	leftCopy->next = rightCopy;
 	s.w = leftCopy;
-cout << "Leaving function operator+(const Word& leftWord, const Word& rightWord)" << endl;
+// cout << "Leaving function operator+(const Word& leftWord, const Word& rightWord)" << endl;
 	return s;
 };
 Word firstHelper(const Sentence& s) {
-cout << "Entering function firstHelper(const Sentence& s)" << endl;
+// cout << "Entering function firstHelper(const Sentence& s)" << endl;
 	Word copy("dummy");
 	if(s.w != NULL) {
 		copy = *(s.w);
@@ -257,7 +258,7 @@ cout << "Entering function firstHelper(const Sentence& s)" << endl;
 	copy.next = NULL;
 	delete temp;
 	return copy;
-cout << "Leaving function firstHelper(const Sentence& s)" << endl;
+// cout << "Leaving function firstHelper(const Sentence& s)" << endl;
 };
 Sentence restHelper(const Sentence& s) {
 	Sentence copy("dummy variable sentence.");

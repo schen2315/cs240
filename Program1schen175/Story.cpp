@@ -6,12 +6,12 @@
 
 using namespace std;
 Story::Story() {
-cout << "Entering function Story::Story()" << endl;
+// cout << "Entering function Story::Story()" << endl;
 	p = NULL;
-cout << "Leaving function Story::Story()" << endl;	
+// cout << "Leaving function Story::Story()" << endl;	
 }
 Story::Story(string file) {
-cout << "Entering function Story::Story(string file)" << endl;
+// cout << "Entering function Story::Story(string file)" << endl;
 	//rewrite this
 	p = NULL;	
 	// Word w1("dummy");
@@ -36,35 +36,37 @@ cout << "Entering function Story::Story(string file)" << endl;
 	while(getline(input, storyi)) {
 		//cout << storyi << endl;
 		//paragraphs.push_back(storyi);
-		Paragraph pi(storyi);
-		s = s + pi;
+		if(storyi.length() != 0) {
+			Paragraph pi(storyi);
+			s = s + pi;
+		}
 	}
 	// for(unsigned int i=0; i < paragraphs.size(); i++) {
 	// 	Paragraph pi(paragraphs[i]);
 	// 	s = s + pi;
 	// }
 	(*this) = s;
-cout << "Leaving function Story::Story(string file)" << endl;	
+// cout << "Leaving function Story::Story(string file)" << endl;	
 }
 void Story::show() const {
-cout << "Entering function Story::show()" << endl;
+// cout << "Entering function Story::show()" << endl;
 	if(p != NULL) {
 		p->show();
 	}
-cout << "Leaving function Story::show()" << endl;	
+// cout << "Leaving function Story::show()" << endl;	
 };
 void Story::save(string file) {
-cout << "Entering function Story::save(string file)" << endl;
+// cout << "Entering function Story::save(string file)" << endl;
 	ofstream out;
 	out.open(file);
 	p->save(out);
 	out.close();	
-cout << "Leaving function Story::save(string file)" << endl;		
+// cout << "Leaving function Story::save(string file)" << endl;		
 };
 bool Story::empty() const {
-cout << "Entering function Story::empty()" << endl;
+// cout << "Entering function Story::empty()" << endl;
 
-cout << "Leaving function Story::empty()" << endl;	
+// cout << "Leaving function Story::empty()" << endl;	
 	return true;
 };
 // int Story::sizeOf() const {
@@ -74,12 +76,12 @@ cout << "Leaving function Story::empty()" << endl;
 // 	return 0;
 // };
 Story::~Story() {
-cout << "Entering function Story::~Story()" << endl;
+// cout << "Entering function Story::~Story()" << endl;
 	if(p != NULL) delete p;
-cout << "Leaving function Story::~Story()" << endl;	
+// cout << "Leaving function Story::~Story()" << endl;	
 }
 Story &Story::operator=(const Story &rightStory) {
-cout << "Entering function Story::operator=(const Story &rightStory)" << endl;
+// cout << "Entering function Story::operator=(const Story &rightStory)" << endl;
 	//Paragraph *hp = NULL;
 	// if(p != NULL) {
 	// 	hp = p;
@@ -92,7 +94,7 @@ cout << "Entering function Story::operator=(const Story &rightStory)" << endl;
 		*nP = *(rightStory.p);
 	}
 	//if(hp != NULL) delete hp;
-cout << "Leaving function Story::show()" << endl;	
+// cout << "Leaving function Story::show()" << endl;	
 	return (*this);
 };
 // Story Story::operator+(const Story &rightStory) const {
@@ -113,64 +115,65 @@ cout << "Leaving function Story::show()" << endl;
 // };
 //postfix
 Story &Story::operator++(int num) {
-cout << "Entering function Story::operator++(int num)" << endl;
+// cout << "Entering function Story::operator++(int num)" << endl;
 	if(p != NULL) (*p)++;
-cout << "Leaving function Story::operator++(int num)" << endl;	
+// cout << "Leaving function Story::operator++(int num)" << endl;	
 	return (*this);
 };
 Story &Story::operator--(int num) {
-cout << "Entering function Story::operator--(int num)" << endl;
+// cout << "Entering function Story::operator--(int num)" << endl;
 	if(p != NULL) (*p)--;	
-cout << "Leaving function Story::operator--(int num)" << endl;	
+// cout << "Leaving function Story::operator--(int num)" << endl;	
 	return (*this);
 };
 Story &Story::operator+(int num) {
-cout << "Entering function Story::operator+(int num)" << endl;
+// cout << "Entering function Story::operator+(int num)" << endl;
 	if(num == 1) {
 		if(p != NULL) (*p)+1;
 	}
-cout << "Leaving function Story::operator+(int num)" << endl;	
+// cout << "Leaving function Story::operator+(int num)" << endl;	
 	return (*this);
 };
 //prefix
 Story &Story::operator++() {
-cout << "Entering function Story::operator++()" << endl;
+// cout << "Entering function Story::operator++()" << endl;
 	if(p != NULL) ++(*p);
-cout << "Leaving function Story::operator++()" << endl;	
+// cout << "Leaving function Story::operator++()" << endl;	
 	return (*this);
 };
 Story &Story::operator--() {
-cout << "Entering function Story::operator--()" << endl;
+// cout << "Entering function Story::operator--()" << endl;
 	if(p != NULL) --(*p);
-cout << "Leaving function Story::operator--()" << endl;	
+// cout << "Leaving function Story::operator--()" << endl;	
 	return (*this);
 };
 
 
 
 Paragraph Story::first() const {
-cout << "Entering function Story::first()" << endl;
+// cout << "Entering function Story::first()" << endl;
 
-cout << "Leaving function Story::first()" << endl;
+// cout << "Leaving function Story::first()" << endl;
 	return firstHelper(*this);
 };
 Story Story::rest() const {
-cout << "Entering function Story::rest()" << endl;
-cout << "Leaving function Story::rest()" << endl;
+// cout << "Entering function Story::rest()" << endl;
+
+// cout << "Leaving function Story::rest()" << endl;
 	return restHelper(*this);
 };
 
 
 ostream& operator<<(ostream &out, const Story &s) {
-cout << "Entering function operator<<(ostream &out, const Story &s)" << endl;
+// cout << "Entering function operator<<(ostream &out, const Story &s)" << endl;
 	s.show();
-cout << "Leaving function Story::out()" << endl;
+// cout << "Leaving function Story::out()" << endl;
 	return out;
 };
 
 
 Story operator+(const Story &leftStory, const Paragraph &rightParagraph) {
-cout << "Entering function operator+(const Story &leftStory, const Paragraph &rightParagraph)" << endl;
+// cout << "Entering function operator+(const Story &leftStory, const Paragraph &rightParagraph)" << endl;
 	Story copy;
 	copy = leftStory; 	//deep copy
 
@@ -187,22 +190,22 @@ cout << "Entering function operator+(const Story &leftStory, const Paragraph &ri
 		copy.p = rightCopy;
 	}
 	//run through each paragraph
-cout << "Leaving function operator+(const Story &leftStory, const Paragraph &rightParagraph)" << endl;
+// cout << "Leaving function operator+(const Story &leftStory, const Paragraph &rightParagraph)" << endl;
 	return copy;
 };
 Story operator+(const Paragraph &leftParagraph, const Story &rightStory) {
-cout << "Entering function operator+(const Paragraph &leftParagraph, const Story &rightStory)" << endl;
+// cout << "Entering function operator+(const Paragraph &leftParagraph, const Story &rightStory)" << endl;
 	Story copy;
 	copy = rightStory;
 	Paragraph* leftCopy = new Paragraph();
 	*leftCopy = leftParagraph;
 	leftCopy->next = copy.p;
 	copy.p = leftCopy;
-cout << "Leaving function operator+(const Paragraph &leftParagraph, const Story &rightStory)" << endl;
+// cout << "Leaving function operator+(const Paragraph &leftParagraph, const Story &rightStory)" << endl;
 	return copy;
 };
 Story operator+(const Story &leftStory, const Story &rightStory) {
-cout << "Entering function operator+(const Story &leftStory, const Story &rightStory)" << endl;
+// cout << "Entering function operator+(const Story &leftStory, const Story &rightStory)" << endl;
 	Story leftCopy;
 	leftCopy = leftStory;
 	Paragraph *rightCopy = NULL;
@@ -222,7 +225,7 @@ cout << "Entering function operator+(const Story &leftStory, const Story &rightS
 		leftCopy.p = rightCopy;
 	}
 	
-cout << "Leaving function operator+(const Story &leftStory, const Story &rightStory)" << endl;
+// cout << "Leaving function operator+(const Story &leftStory, const Story &rightStory)" << endl;
 	return leftCopy;
 };
 Paragraph firstHelper(const Story& st) {

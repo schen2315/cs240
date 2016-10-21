@@ -7,19 +7,19 @@
 //#include "Sentence.h"
 
 Paragraph::Paragraph() {
-cout << "Entering function Paragraph::Paragraph()" << endl;
+// cout << "Entering function Paragraph::Paragraph()" << endl;
 	next = NULL;
 	s = NULL;
-cout << "Leaving function Paragraph::Paragraph()" << endl;
+// cout << "Leaving function Paragraph::Paragraph()" << endl;
 };
 Paragraph::Paragraph(const Paragraph &p) {
-	cout << "Entering function Paragraph::Paragraph(const Paragraph &p)" << endl;
+// cout << "Entering function Paragraph::Paragraph(const Paragraph &p)" << endl;
 	next = p.next;
 	s = p.s;
-	cout << "Leaving function Paragraph::Paragraph(const Paragraph &p)" << endl;
+// cout << "Leaving function Paragraph::Paragraph(const Paragraph &p)" << endl;
 };	
 Paragraph::Paragraph(string para) {
-cout << "Entering function Paragraph::Paragraph(string input)" << endl;
+// cout << "Entering function Paragraph::Paragraph(string input)" << endl;
 	//It was a rainy day. Everyone stayed inside.
 	s = NULL;
 	next = NULL;
@@ -70,21 +70,22 @@ cout << "Entering function Paragraph::Paragraph(string input)" << endl;
 	// 	p1 = p1 + si;
 	// }
 	(*this) = p1;
-cout << "Leaving function Paragraph::Paragraph(string input)" << endl;
+// cout << "Leaving function Paragraph::Paragraph(string input)" << endl;
 }
 void Paragraph::show() const {
-cout << "Entering function Paragraph::show()" << endl;
+// cout << "Entering function Paragraph::show()" << endl;
 	if(s != NULL) {
 		cout << "	";
 		s->show();
 	} else {
-		cout << "no words in paragraph" << endl;
+		// cout << "no words in paragraph" << endl;
 	}
 	cout << endl;
 	if(next != NULL) {
 		next->show();
 	}
-cout << "Leaving function Paragraph::show()" << endl;
+	// cout << endl;
+// cout << "Leaving function Paragraph::show()" << endl;
 };
 void Paragraph::save(ofstream& file) {
 	if(s != NULL) {
@@ -97,29 +98,29 @@ void Paragraph::save(ofstream& file) {
 	}
 };
 bool Paragraph::empty() const {
-cout << "Entering function Paragraph::empty()" << endl;
+// cout << "Entering function Paragraph::empty()" << endl;
 
-cout << "Leaving function Paragraph::empty()" << endl;
+// cout << "Leaving function Paragraph::empty()" << endl;
 	return true;
 };
 int Paragraph::sizeOf() const {
-cout << "Entering function Paragraph::sizeOf()" << endl;
+// cout << "Entering function Paragraph::sizeOf()" << endl;
 
-cout << "Leaving function Paragraph::sizeOf()" << endl;
+// cout << "Leaving function Paragraph::sizeOf()" << endl;
 	return 0;
 };
 Paragraph::~Paragraph() {
-cout << "Entering function Paragraph::~Paragraph()" << endl;
+// cout << "Entering function Paragraph::~Paragraph()" << endl;
 	if(s != NULL) delete s;
 	if(next != NULL) {
 		delete next;
 	}
-cout << "Leaving function Paragraph::~Paragraph()" << endl;
+// cout << "Leaving function Paragraph::~Paragraph()" << endl;
 };
 
 
 Paragraph &Paragraph::operator=(const Paragraph &rightParagraph) {
-cout << "Entering function Paragraph::operator=(const Paragraph &rightParagraph)" << endl;
+// cout << "Entering function Paragraph::operator=(const Paragraph &rightParagraph)" << endl;
 	//Sentence *hs = NULL;
 	//Paragraph *hnext = NULL;
 	// if(s != NULL) {
@@ -142,7 +143,7 @@ cout << "Entering function Paragraph::operator=(const Paragraph &rightParagraph)
 	}
 	//if(hs != NULL) delete hs;
 	//if(hnext != NULL) delete hnext;
-cout << "Leaving function Paragraph::operator=(const Paragraph &rightParagraph)" << endl;
+// cout << "Leaving function Paragraph::operator=(const Paragraph &rightParagraph)" << endl;
 	return (*this);
 };	
 // Paragraph Paragraph::operator+(const Paragraph &rightParagraph) const {
@@ -160,68 +161,68 @@ cout << "Leaving function Paragraph::operator=(const Paragraph &rightParagraph)"
 // 	return p;
 // }; 	
 Paragraph &Paragraph::operator++(int num) {
-cout << "Entering function Paragraph::operator++(int num)" << endl;
+// cout << "Entering function Paragraph::operator++(int num)" << endl;
 	if(s != NULL) (*s)++;	
 	if(next != NULL) (*next)++;
-cout << "Leaving function Paragraph::operator++(int num)" << endl;
+// cout << "Leaving function Paragraph::operator++(int num)" << endl;
 	return (*this);
 };
 Paragraph &Paragraph::operator--(int num) {
-cout << "Entering function Paragraph::operator--(int num)" << endl;
+// cout << "Entering function Paragraph::operator--(int num)" << endl;
 	if(s != NULL) (*s)--;	
 	if(next != NULL) (*next)--;
-cout << "Leaving function Paragraph::operator--(int num)" << endl;
+// cout << "Leaving function Paragraph::operator--(int num)" << endl;
 	return (*this);
 };
 Paragraph &Paragraph::operator+(int num) {
-cout << "Entering function Paragraph::operator+(int num)" << endl;
+// cout << "Entering function Paragraph::operator+(int num)" << endl;
 	if(num == 1) {
 		if(s != NULL) (*s) + 1;	
 		if(next != NULL) (*next) + 1;
 	}
-cout << "Leaving function Paragraph::operator+(int num)" << endl;
+// cout << "Leaving function Paragraph::operator+(int num)" << endl;
 	return (*this);
 };
 Paragraph &Paragraph::operator++() {
-cout << "Entering function Paragraph::operator++()" << endl;
+// cout << "Entering function Paragraph::operator++()" << endl;
 	if(s != NULL) ++(*s);	
 	if(next != NULL) ++(*next);	
-cout << "Leaving function Paragraph::operator++()" << endl;
+// cout << "Leaving function Paragraph::operator++()" << endl;
 	return (*this);
 };
 Paragraph &Paragraph::operator--() {
-cout << "Entering function Paragraph::operator--(int num)" << endl;
+// cout << "Entering function Paragraph::operator--(int num)" << endl;
 	if(s != NULL) --(*s);	
 	if(next != NULL) --(*next);	
-cout << "Leaving function Paragraph::operator--(int num)" << endl;
+// cout << "Leaving function Paragraph::operator--(int num)" << endl;
 	return (*this);
 };
 
 
 
 Sentence Paragraph::first() const {
-	cout << "Entering function Paragraph::first()" << endl;
-	cout << "Leaving function Paragraph::first()" << endl;
+// cout << "Entering function Paragraph::first()" << endl;
+// cout << "Leaving function Paragraph::first()" << endl;
 	return firstHelper(*this);
 };
 Paragraph Paragraph::rest() const {
-	cout << "Entering function Paragraph::rest()" << endl;
-	cout << "Leaving function Paragraph::rest()" << endl;
+// cout << "Entering function Paragraph::rest()" << endl;
+// cout << "Leaving function Paragraph::rest()" << endl;
 	return restHelper(*this);
 };
 
 
 
 ostream& operator<<(ostream &out, const Paragraph &p) {
-cout << "Entering function operator<<(ostream &out, const Paragraph &p)" << endl;
+// cout << "Entering function operator<<(ostream &out, const Paragraph &p)" << endl;
 	p.show();
-cout << "Leaving function operator<<(ostream &out, const Paragraph &p)" << endl;
+// cout << "Leaving function operator<<(ostream &out, const Paragraph &p)" << endl;
 	return out;
 };
 
 
 Paragraph operator+(const Paragraph& leftParagraph, const Sentence& rightSentence) {
-cout << "Entering function operator+(const Paragraph& leftParagraph, const Sentence& rightSentence)" << endl;
+// cout << "Entering function operator+(const Paragraph& leftParagraph, const Sentence& rightSentence)" << endl;
 	Paragraph copy;
 	copy = leftParagraph;
 	Sentence *lastSentence = new Sentence();
@@ -237,11 +238,11 @@ cout << "Entering function operator+(const Paragraph& leftParagraph, const Sente
 	}
 	
 
-cout << "Leaving function operator+(const Paragraph& leftParagraph, const Sentence& rightSentence)" << endl;
+// cout << "Leaving function operator+(const Paragraph& leftParagraph, const Sentence& rightSentence)" << endl;
 	return copy;
 };
 Paragraph operator+(const Sentence& leftSentence, const Paragraph& rightParagraph) {
-cout << "Entering function operator+(const Sentence& leftSentence, const Paragraph& rightParagraph)" << endl;
+// cout << "Entering function operator+(const Sentence& leftSentence, const Paragraph& rightParagraph)" << endl;
 	Paragraph copy;
 	copy = rightParagraph;
 	Sentence *nS = new Sentence();
@@ -250,12 +251,12 @@ cout << "Entering function operator+(const Sentence& leftSentence, const Paragra
 	copy.s = nS;
 	nS->next = temp;
 
-cout << "Leaving function operator+(const Sentence& leftSentence, const Paragraph& rightParagraph)" << endl;
+// cout << "Leaving function operator+(const Sentence& leftSentence, const Paragraph& rightParagraph)" << endl;
 	return copy;
 };
 
 Paragraph operator+(const Sentence& leftSentence, const Sentence& rightSentence) {
-cout << "Entering function operator+(const Sentence& leftSentence, const Sentence& rightSentence)" << endl;
+// cout << "Entering function operator+(const Sentence& leftSentence, const Sentence& rightSentence)" << endl;
 	Paragraph p;
 	Sentence* leftCopy = new Sentence();
 	*leftCopy = leftSentence;
@@ -263,12 +264,12 @@ cout << "Entering function operator+(const Sentence& leftSentence, const Sentenc
 	*rightCopy = rightSentence;
 	leftCopy->next = rightCopy;
 	p.s = leftCopy;
-cout << "Leaving function operator+(const Sentence& leftSentence, const Sentence& rightSentence)" << endl;
+// cout << "Leaving function operator+(const Sentence& leftSentence, const Sentence& rightSentence)" << endl;
 	return p;
 };
 
 Paragraph operator+(const Paragraph& leftParagraph, const Paragraph& rightParagraph) {
-cout << "Entering function operator+(const Paragraph& leftParagraph, const Paragraph& rightParagraph)" << endl;
+// cout << "Entering function operator+(const Paragraph& leftParagraph, const Paragraph& rightParagraph)" << endl;
 	Paragraph leftCopy;		
 	//Paragraph* rightCopy = new Paragraph();			//if this is an object, the compiler will delete it since it is technically not needed anymore
 													//the object won't get deleted unless it is explicitly deleted
@@ -308,7 +309,7 @@ cout << "Entering function operator+(const Paragraph& leftParagraph, const Parag
 		//leftCopy.s = rightCopy->s;
 		leftCopy.s = copyIt;
 	}
-cout << "Leaving function operator+(const Paragraph& leftParagraph, const Paragraph& rightParagraph)" << endl;
+// cout << "Leaving function operator+(const Paragraph& leftParagraph, const Paragraph& rightParagraph)" << endl;
 	return leftCopy;
 };
 Sentence firstHelper(const Paragraph& p) {
